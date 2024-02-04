@@ -1,28 +1,13 @@
 #include "../incl/phonebook.hpp"
 
-//Phonebook
-//add contact
-    //create contact
-        //add to last, if there are eight remove oldest
-
-
-/*
-phonebook:
-    contacts holder
-    create contact function
-    search contact function
-
-
-*/
-
 //constructor - destructor
-Phonebook::Phonebook()
+PhoneBook::PhoneBook()
 {
-    this->bookmark = 0;
+    this->index = 0;
     return ;
 }
 
-Phonebook::~Phonebook()
+PhoneBook::~PhoneBook()
 {
     return ;
 }
@@ -32,10 +17,28 @@ Phonebook::~Phonebook()
 
 
 //public
-void Phonebook::addContact()
+void PhoneBook::addContact()
 {
-    this->_contacts[this->bookmark].createContact();
-    this->bookmark += 1;
-    if (this->bookmark >= 8)
-        this->bookmark = 0;
+    this->_contacts[this->index].createContact();
+    this->index += 1;
+    if (this->index >= 8)
+        this->index = 0;
+}
+
+void PhoneBook::searchContacts()
+{
+    int index;
+
+    if (this->_contacts[0].isActive() == 0)
+        return ; //print message?
+    for (int i = 0; i < 8; i++)
+    {
+        if (this->_contacts[i].isActive() == 0)
+            break ;
+        this->_contacts[i].contactPreview(i);
+    }
+    std::cin >> index;
+    if (index > 7 || this->_contacts[index].isActive() == 0)
+        return ;
+    this->_contacts[index].printContact();
 }

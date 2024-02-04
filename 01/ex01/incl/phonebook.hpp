@@ -1,37 +1,18 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 
-# include <iostream>
-# include <string>
+# include "contact.hpp"
 
-class Contact
-{
-    private:
-        //all the input fields
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickName;
-        std::string _phoneNumber;
-        std::string _darkestSecret;
-        std::string _getAttribute(std::string message);
-    public:
-        Contact(void);
-        ~Contact(void);
-
-        void createContact(void);
-        void printContact(void) const;
-}
-
-class Phonebook
+class PhoneBook
 {
     private:
         Contact _contacts[8];
-        int bookmark;
+        int index;
     public:
-        Phonebook(void);
-        ~Phonebook(void);
+        PhoneBook(void);
+        ~PhoneBook(void);
         void addContact(void);
         void searchContacts(void);
-}
+};
 
 #endif
