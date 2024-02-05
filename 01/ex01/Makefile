@@ -7,7 +7,7 @@ OBJS_DIR = objs
 SRCS_DIR = src
 INCL_DIR = incl
 
-FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+FILES = main.cpp Zombie.cpp zombieHorde.cpp
 SRCS = $(addprefix $(SRCS_DIR)/, $(FILES))
 OBJS = $(addprefix $(OBJS_DIR)/, $(FILES:.cpp=.o))
 

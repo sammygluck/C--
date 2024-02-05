@@ -2,6 +2,13 @@
 
 
 //constructor - destructor
+
+//default constructor
+Zombie::Zombie(): _name("Default")
+{
+    return ;
+}
+
 Zombie::Zombie(std::string name) : _name(name)
 {
     return ;   
