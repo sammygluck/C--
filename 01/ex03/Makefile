@@ -2,12 +2,12 @@
 ##FILES, SRC, OBJS##
 ####################
 
-NAME = zombie
+NAME = attack
 OBJS_DIR = objs
 SRCS_DIR = src
 INCL_DIR = incl
 
-FILES = main.cpp Zombie.cpp zombieHorde.cpp
+FILES = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 SRCS = $(addprefix $(SRCS_DIR)/, $(FILES))
 OBJS = $(addprefix $(OBJS_DIR)/, $(FILES:.cpp=.o))
 
