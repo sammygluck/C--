@@ -2,7 +2,7 @@
 ##FILES, SRC, OBJS##
 ####################
 
-NAME = scavtrap
+NAME = animal
 OBJS_DIR = objs
 SRCS_DIR = src
 INCL_DIR = incl
