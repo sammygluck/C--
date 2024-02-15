@@ -12,10 +12,6 @@ PhoneBook::~PhoneBook()
     return ;
 }
 
-
-//private
-
-
 //public
 void PhoneBook::addContact()
 {
