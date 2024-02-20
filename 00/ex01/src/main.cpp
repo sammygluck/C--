@@ -16,7 +16,7 @@ int main(void)
         else if (input == "EXIT")
             break ;
         else
-            std::cout << "ENTER VALID COMMAND" <<  std::endl; //which is.... (also possible to do in beginning)
+            std::cout << "ENTER VALID COMMAND: ADD/SEARCH/EXIT" <<  std::endl;
     }
     return (0);
 }
