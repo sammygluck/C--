@@ -2,7 +2,7 @@
 ##FILES, SRC, OBJS##
 ####################
 
-NAME = zombie
+NAME = zombiehorde
 OBJS_DIR = objs
 SRCS_DIR = src
 INCL_DIR = incl
