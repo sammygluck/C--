@@ -18,5 +18,10 @@ void HumanB::setWeapon(Weapon& type)
 
 void HumanB::attack()
 {
+    if (this->_type == 0)
+    {
+        std::cout << this->_name << " is defenseless. Quickly give him a weapon!" << std::endl;
+        return;
+    }
     std::cout << this->_name << " attacks with their " << this->_type->getType() << std::endl;
 }
