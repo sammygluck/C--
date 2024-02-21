@@ -16,7 +16,10 @@ int main(void)
         else if (input == "EXIT")
             break ;
         else
-            std::cout << "ENTER VALID COMMAND: ADD/SEARCH/EXIT" <<  std::endl;
+        {
+            std::cout << input << " IS INVALID COMMAND" << std::endl;
+            std::cout << "VALID COMMANDS ARE: ADD/SEARCH/EXIT" <<  std::endl;
+        }
     }
     return (0);
 }

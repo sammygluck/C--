@@ -1,14 +1,4 @@
-        // _firstName;
-        // _lastName;
-        // _nickName;
-        // _phoneNumber;
-        // _darkestSecret;
-
-    //create contact
-        //set each attribute
-            //while not set ask for valid text
-
-#include "../incl/phonebook.hpp"
+#include "../incl/contact.hpp"
 
 
 //constructor - destructor
@@ -77,6 +67,7 @@ void Contact::contactPreview(int index) const
     std::cout << this->_printString(this->_lastName);
     std::cout << '|';
     std::cout << this->_printString(this->_nickName) << std::endl;
+    return ;
 
 }
 
