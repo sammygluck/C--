@@ -101,14 +101,14 @@ Fixed& Fixed::operator--(void)
     return *this;
 }
 
-Fixed Fixed::operator++(int) //need to understand this
+Fixed Fixed::operator++(int)
 {
     Fixed temp(*this);
     this->_value++;
     return temp;
 }
 
-Fixed Fixed::operator--(int) //need to understand this
+Fixed Fixed::operator--(int)
 {
     Fixed temp(*this);
     this->_value--;

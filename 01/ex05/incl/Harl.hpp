@@ -12,7 +12,7 @@ class Harl
         void _warning(void);
         void _error(void);
 
-        struct ComplainLevel
+        struct ComplainLevel //double check
         {
             std::string level;
             // void(*func)(void);
