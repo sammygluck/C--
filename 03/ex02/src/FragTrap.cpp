@@ -3,7 +3,7 @@
 FragTrap::FragTrap(): ClapTrap()
 {
     std::cout << "FragTrap: default constructor called" << std::endl;
-    this->_hitpoints = 100; // Access the protected member variable directly
+    this->_hitPoints = 100; // Access the protected member variable directly
     this->_energyPoints = 100;
     this->_attackDamage = 30;
 }
@@ -12,7 +12,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 {
     std::cout << "FragTrap: constructor called" << std::endl;
 
-    this->_hitpoints = 100;
+    this->_hitPoints = 100;
     this->_energyPoints = 100;
     this->_attackDamage = 30;
 }
@@ -35,7 +35,7 @@ FragTrap& FragTrap::operator=(const FragTrap& copy)
     if (this != &copy)
     {
         this->_name = copy._name;
-        this->_hitpoints = copy._hitpoints;
+        this->_hitPoints = copy._hitPoints;
         this->_energyPoints = copy._energyPoints;
         this->_attackDamage = copy._attackDamage;
     }

@@ -3,7 +3,7 @@
 ScavTrap::ScavTrap(): ClapTrap()
 {
     std::cout << "ScavTrap: default constructor called" << std::endl;
-    _hitpoints = 100; // Access the protected member variable directly
+    _hitPoints = 100; // Access the protected member variable directly
     _energyPoints = 50;
     _attackDamage = 20;
 }
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
     std::cout << "ScavTrap: constructor called" << std::endl;
 
-    this->_hitpoints = 100;
+    this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
 }
@@ -35,7 +35,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
     if (this != &copy)
     {
         this->_name = copy._name;
-        this->_hitpoints = copy._hitpoints;
+        this->_hitPoints = copy._hitPoints;
         this->_energyPoints = copy._energyPoints;
         this->_attackDamage = copy._attackDamage;
     }
@@ -46,7 +46,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& copy)
 
 void ScavTrap::attack(const std::string &target)
 {
-    if (this->_hitpoints == 0)
+    if (this->_hitPoints == 0)
     {
         std::cout << "ScavTrap " << this->_name << " is dead and cannot attack" << std::endl;
         return ;
@@ -62,21 +62,21 @@ void ScavTrap::attack(const std::string &target)
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
-    if (this->_hitpoints == 0)
+    if (this->_hitPoints == 0)
     {
         std::cout << "ScavTrap " << this->_name << " is already dead" << std::endl;
         return ;
     }
     unsigned int allowedDamage = amount;
-    if (this->_hitpoints < amount)
-        allowedDamage = this->_hitpoints;
+    if (this->_hitPoints < amount)
+        allowedDamage = this->_hitPoints;
     std::cout << "ScavTrap " << this->_name << " takes " << allowedDamage << " points of damage!" << std::endl;
-    this->_hitpoints -= allowedDamage;
+    this->_hitPoints -= allowedDamage;
 }
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
-    if (this->_hitpoints == 0)
+    if (this->_hitPoints == 0)
     {
         std::cout << "ScavTrap " << this->_name << " is dead and cannot be repaired" << std::endl;
         return ;
@@ -87,7 +87,7 @@ void ScavTrap::beRepaired(unsigned int amount)
         return ;
     }
     std::cout << "ScavTrap " << this->_name << " is repaired for " << amount << " hitpoints!" << std::endl;
-    this->_hitpoints += amount;
+    this->_hitPoints += amount;
     this->_energyPoints -= 1;
 }
 

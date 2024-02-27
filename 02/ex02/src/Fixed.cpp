@@ -3,13 +3,14 @@
 //default constructor
 Fixed::Fixed() : _value(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    // std::cout << "Default constructor called" << std::endl;
 }
 
 //constructor with int parameter
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
+    // std::cout << "Int constructor called" << std::endl;
+
     //shifts the bits to the left by the number of fractional bits
     this->_value = value << this->_fractionalBits;
 }
@@ -17,7 +18,7 @@ Fixed::Fixed(const int value)
 //constructor with float parameter
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+    // std::cout << "Float constructor called" << std::endl;
     //roundf rounds to the nearest integer value
     this->_value = roundf(value * (1 << this->_fractionalBits));
 }
@@ -25,14 +26,14 @@ Fixed::Fixed(const float value)
 //copy constructor
 Fixed::Fixed(const Fixed& other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    // std::cout << "Copy constructor called" << std::endl;
     *this = other;
 }
 
 //destructor
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called" << std::endl;
+    // std::cout << "Destructor called" << std::endl;
 }
 
 //OPERATOR OVERLOADS
@@ -70,22 +71,28 @@ bool Fixed::operator!=(const Fixed& other) const
 //2. arithmetic
 Fixed Fixed::operator+(const Fixed& other) const
 {
-    return (Fixed(this->toFloat() + other.toFloat())); //double check this
+    Fixed tmp;
+
+    tmp.setRawBits(this->_value + other._value);
+    return (tmp);
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
-    return (Fixed(this->toFloat() - other.toFloat()));
+    Fixed tmp;
+
+    tmp.setRawBits(this->_value - other._value);
+    return (tmp);
 }
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
-    return (Fixed(this->toFloat() * other.toFloat()));
+    return(this->toFloat() * other.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-    return (Fixed(this->toFloat() / other.toFloat())); //check for div by 0
+    return (this->toFloat() / other.toFloat());
 }
 
 //3. pre/post-increment/decrement
@@ -119,9 +126,9 @@ Fixed Fixed::operator--(int)
 //4. assignment
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    std::cout << "Copy assignment operator called" << std::endl;
+    // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
-        _value = other.getRawBits();
+        this->_value = other.getRawBits();
     return *this;
 }
 
@@ -129,13 +136,13 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits member function called" << std::endl;
+    //std::cout << "getRawBits member function called" << std::endl;
     return (this->_value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-    std::cout << "setRawBits member function called" << std::endl;
+    //std::cout << "setRawBits member function called" << std::endl;
     this->_value = raw;
 }
 

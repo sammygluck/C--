@@ -14,16 +14,14 @@ int main(void) {
     bsptr->attack("TEST");
     std::cout << "==================" << std::endl;
 
-    //std::cout << clap.getName() << " has " << clap.getHP() << " HP" << std::endl;
-    //std::cout << scav.getName() << " has " << scav.getHP() << " HP" << std::endl;
     clap.attack("Someone");
     scav.attack("Someone else");
     scav.beRepaired(50);
-   // std::cout << scav.getName() << " has " << scav.getHP() << " HP" << std::endl;
+
     scav.takeDamage(160);
 
     scav.attack("Someone");
     scav.takeDamage(1);
     scav.guardGate();
-    //clap.guardGate(); -> doesnt work
+
 }
