@@ -11,13 +11,13 @@ class Fixed
         static const int _fractionalBits = 8;
     public:
         //constructors
-        Fixed();
+        Fixed(void);
         Fixed(const int value);
         Fixed(const float value);
         //copy constructor
         Fixed(const Fixed& other);
         //destructor
-        ~Fixed();
+        ~Fixed(void);
 
         //OPERATOR OVERLOADS
         //comparison
@@ -40,7 +40,6 @@ class Fixed
         Fixed operator--(int);
         //assignment
         Fixed& operator=(const Fixed& other);
-
 
         //public
         int getRawBits(void) const;

@@ -11,7 +11,7 @@ class Fixed
         static const int _fractionalBits = 8;
     public:
         //constructors
-        Fixed();
+        Fixed(void);
         Fixed(const int value);
         Fixed(const float value);
         //copy constructor
@@ -19,7 +19,7 @@ class Fixed
         //assignment operator overload
         Fixed& operator=(const Fixed& other);
         //destructor
-        ~Fixed();
+        ~Fixed(void);
         //public
         int getRawBits(void) const;
         void setRawBits(int const raw);
