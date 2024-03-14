@@ -1,9 +1,9 @@
 #include "../incl/FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap()
+FragTrap::FragTrap(void): ClapTrap()
 {
     std::cout << "FragTrap: default constructor called" << std::endl;
-    this->_hitPoints = 100; // Access the protected member variable directly
+    this->_hitPoints = 100; 
     this->_energyPoints = 100;
     this->_attackDamage = 30;
 }
@@ -23,7 +23,7 @@ FragTrap::FragTrap(const FragTrap& copy): ClapTrap(copy)
     *this = copy;
 }
 
-FragTrap::~FragTrap()
+FragTrap::~FragTrap(void)
 {
     std::cout << "FragTrap: destructor called" << std::endl;
 }

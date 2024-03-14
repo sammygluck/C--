@@ -1,6 +1,6 @@
 #include "../incl/ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap()
+ScavTrap::ScavTrap(void): ClapTrap()
 {
     std::cout << "ScavTrap: default constructor called" << std::endl;
     _hitPoints = 100; // Access the protected member variable directly
@@ -8,7 +8,7 @@ ScavTrap::ScavTrap(): ClapTrap()
     _attackDamage = 20;
 }
 
-ScavTrap::~ScavTrap()
+ScavTrap::~ScavTrap(void)
 {
     std::cout << "ScavTrap: destructor called" << std::endl;
 }
@@ -60,7 +60,7 @@ void ScavTrap::attack(const std::string &target)
     std::cout << "ScavTrap " << this->_name << " attacks " << target << " causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate(void)
 {
     std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
 }

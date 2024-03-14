@@ -1,7 +1,7 @@
 #include "../incl/ClapTrap.hpp"
 
 // CANONICAL FORM
-ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(void) : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
     std::cout << "ClapTrap Default constructor called" << std::endl;
 }
@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
     *this = copy;
 }
 
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap(void)
 {
     std::cout << "ClapTrap Destructor called" << std::endl;
 }
