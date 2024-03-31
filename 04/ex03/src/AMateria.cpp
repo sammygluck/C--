@@ -1,10 +1,10 @@
 #include "../incl/AMateria.hpp"
 
-AMateria::AMateria(void) : _type("default")
+AMateria::AMateria() : _type("default")
 {
 }
 
-AMateria::AMateria(std::string type) : _type(type)
+AMateria::AMateria(std::string const & type) : _type(type)
 {
 }
 
@@ -13,7 +13,7 @@ AMateria::AMateria(const AMateria &copy)
     *this = copy;
 }
 
-AMateria::~AMateria(void)
+AMateria::~AMateria()
 {
 }
 

@@ -3,16 +3,16 @@
 
 #include <iostream>
 
-Cure::Cure(void) : AMateria("cure")
+Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy): AMateria(copy)
 {
     *this = copy;
 }
 
-Cure::~Cure(void)
+Cure::~Cure()
 {
 }
 
@@ -25,12 +25,12 @@ Cure &Cure::operator=(const Cure &copy)
     return (*this);
 }
 
-AMateria *Cure::clone(void) const
+AMateria *Cure::clone() const
 {
     return (new Cure(*this));
 }
 
 void Cure::use(ICharacter &target)
 {
-    std::cout << "* heals" << target.getName() << "'s wounds *" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

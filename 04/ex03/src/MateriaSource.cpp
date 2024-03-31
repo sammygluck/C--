@@ -19,7 +19,7 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
     }
 }
 
-MateriaSource::~MateriaSource(void)
+MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
     {
@@ -49,17 +49,17 @@ void MateriaSource::learnMateria(AMateria *m)
 {
     if (this->_materiasCount < 4)
     {
-        this->_materias[this->_materiasCount] = m;
-        this->_materiasCount++; //where does it get deleted/decremented?
+        this->_materias[this->_materiasCount] = m->clone();
+        this->_materiasCount++;
     }
     else
     {
         std::cout << "MateriaSource is full" << std::endl;
-        delete m;
+        // delete m; //decided to do it differently
     }
 }
 
-AMateria *MateriaSource::createMateria(std::string const &type)
+AMateria *MateriaSource::createMateria(std::string const & type)
 {
     for (int i = 0; i < 4; i++)
     {

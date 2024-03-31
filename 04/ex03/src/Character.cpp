@@ -1,6 +1,6 @@
 #include "../incl/Character.hpp"
 
-Character::Character(void) : _name("default")
+Character::Character() : _name("default")
 {
     for (int i = 0; i < 4; i++)
     {
@@ -27,7 +27,7 @@ Character::Character(const Character &copy) : _name(copy._name)
     }    
 }
 
-Character::~Character(void)
+Character::~Character()
 {
     for (int i = 0; i < 4; i++)
     {
@@ -38,23 +38,23 @@ Character::~Character(void)
 
 Character &Character::operator=(const Character &other)
 {
-    for (int i = 0; i < 4; i++)
+    if (this != &other)
     {
-        if (this->_inventory[i])
-            delete this->_inventory[i];
-        if (other._inventory[i])
+        for (int i = 0; i < 4; i++)
         {
-            this->_inventory[i] = other._inventory[i]->clone();
+            if (this->_inventory[i])
+                delete this->_inventory[i];
+            if (other._inventory[i])
+                this->_inventory[i] = other._inventory[i]->clone();
+            else
+                this->_inventory[i] = NULL;
         }
-        else
-            this->_inventory[i] = NULL;
-        
+        this->_name = other._name;
     }
-    this->_name = other._name; //double check this
     return (*this);
 }
 
-std::string const &Character::getName(void) const
+std::string const &Character::getName() const
 {
     return (this->_name);
 }
@@ -76,20 +76,16 @@ void Character::equip(AMateria *m)
             return ;
         }
     }
-    delete m;
+    // delete m; //decided to do it differently
     std::cout << "Inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
     if (idx < 0 || idx > 3)
-    {
         std::cout << "Invalid index" << std::endl;
-    }
     else if (this->_inventory[idx] == NULL)
-    {
         std::cout << "Empty slot" << std::endl;
-    }
     else
     {
         std::cout << this->getName() << " unequips " << this->_inventory[idx]->getType() << std::endl;
@@ -99,9 +95,15 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-    if ((idx < 0 || idx > 3) || this->_inventory[idx] == NULL)
+    if (idx < 0 || idx > 3)
     {
         std::cout << "Invalid index" << std::endl;
+        return;
+    }
+    if (this->_inventory[idx] == NULL)
+    {
+        std::cout << "Empty slot" << std::endl;
+        return;
     }
     else
     {
