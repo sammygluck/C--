@@ -6,12 +6,12 @@
 class WrongCat : public WrongAnimal
 {
     public:
-        WrongCat();
+        WrongCat(void);
         WrongCat(const WrongCat& copy);
-        ~WrongCat();
+        ~WrongCat(void);
         WrongCat& operator=(const WrongCat& copy);
 
-        void makeSound() const;
+        void makeSound(void) const;
 };
 
 

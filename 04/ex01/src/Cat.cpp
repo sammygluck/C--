@@ -1,17 +1,13 @@
 #include "../incl/Cat.hpp"
 
-Cat::Cat(): Animal(), _brain(new Brain())
+Cat::Cat(): Animal()
 {
     this->_type = "Cat";
-    std::cout << "Default Cat constructor called" << std::endl;
-}
-{
-    this->_type = "Cat";
-    this->_brain = new Brain(); //not sure if this is correct
+    this->_brain = new Brain();
     std::cout << "Default Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat& copy): Animal(copy), _brain(nullptr)
+Cat::Cat(const Cat& copy): Animal(copy), _brain(NULL)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     if (copy._brain)
@@ -28,18 +24,18 @@ Cat& Cat::operator=(const Cat& copy)
 {
     if (this != &copy)
     {
-        Animal::operator=(copy);
+        Animal::operator=(copy); 
         this->_type = copy._type;
 
-        delete this->_brain;
+        Brain* tempBrain = NULL;
         if (copy._brain)
-            this->_brain = new Brain(*copy._brain);
-        else
-            this->_brain = nullptr;
-
+            tempBrain = new Brain(*copy._brain);
+        delete this->_brain;
+        this->_brain = tempBrain;
     }
-    return (*this);
+    return *this;
 }
+
 
 void Cat::makeSound() const
 {

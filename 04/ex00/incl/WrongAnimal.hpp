@@ -9,13 +9,13 @@ class WrongAnimal
     protected:
         std::string _type;
     public:
-        WrongAnimal();
+        WrongAnimal(void);
         WrongAnimal(const WrongAnimal& copy);
-        ~WrongAnimal();
+        ~WrongAnimal(void);
         WrongAnimal& operator=(const WrongAnimal& copy);
 
-        std::string getType() const;
-        void makeSound() const;
+        std::string getType(void) const;
+        void makeSound(void) const;
 };
 
 #endif

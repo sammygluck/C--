@@ -4,35 +4,30 @@
 #include "../incl/WrongAnimal.hpp"
 #include "../incl/WrongCat.hpp"
 
-int main(void)
+int main()
 {
-    std::cout << "----------------The right way: constructor----------------" << std::endl;
-    Animal* elephant = new Animal();
-    Animal* cat = new Cat();
-    Animal* dog = new Dog();
+    //this cannot work because of the pure virtual function
+    // Animal *animal = new Animal();
+    // animal->makeSound();
+    // delete animal;
 
-    std::cout << "----------------The right way: sounds----------------" << std::endl;
 
-    elephant->makeSound();
-    cat->makeSound();
-    dog->makeSound();
+    Animal* animals[8];
+    for (int i = 0; i < 4; ++i)
+        animals[i] = new Cat();
+    for (int i = 4; i < 8; ++i)
+        animals[i] = new Dog();
+    for (int i = 0; i < 8; ++i)
+        delete animals[i];
 
-    std::cout << "----------------The wrong way: constructor----------------" << std::endl;
-    WrongAnimal* wrongAnimal = new WrongAnimal();
-    WrongAnimal* wrongCat = new WrongCat();
-    
-    std::cout << "----------------The wrong way: sounds----------------" << std::endl;
-    wrongAnimal->makeSound();
-    wrongCat->makeSound();
+    std::cout << std::endl;
 
-    std::cout << "----------------The right way: destructor----------------" << std::endl;
-    delete elephant;
-    delete cat;
-    delete dog;
 
-    std::cout << "----------------The wrong way: destructor----------------" << std::endl;
-    delete wrongAnimal;
-    delete wrongCat;
-
-    return (0);
+    Cat *catA = new Cat();
+    Cat *catB = new Cat(*catA);
+    Cat *catC = new Cat();
+    *catC = *catB;
+    delete catA;
+    delete catB;
+    delete catC;
 }

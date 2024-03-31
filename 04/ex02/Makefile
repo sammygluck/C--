@@ -2,12 +2,12 @@
 ##FILES, SRC, OBJS##
 ####################
 
-NAME = animal
+NAME = abstract_class
 OBJS_DIR = objs
 SRCS_DIR = src
 INCL_DIR = incl
 
-FILES = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+FILES = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 SRCS = $(addprefix $(SRCS_DIR)/, $(FILES))
 OBJS = $(addprefix $(OBJS_DIR)/, $(FILES:.cpp=.o))
 

@@ -6,13 +6,12 @@
 class Cat : public Animal
 {
     public:
-        Cat();
+        Cat(void);
         Cat(const Cat& copy);
-        virtual ~Cat();
+        virtual ~Cat(void);
         Cat& operator=(const Cat& copy);
 
-        //virtual std::string getType() const;
-        virtual void makeSound() const;
+        virtual void makeSound(void) const;
 };
 
 

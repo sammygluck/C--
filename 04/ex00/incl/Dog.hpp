@@ -6,12 +6,12 @@
 class Dog : public Animal
 {
     public:
-        Dog();
+        Dog(void);
         Dog(const Dog& copy);
-        virtual ~Dog();
+        virtual ~Dog(void);
         Dog& operator=(const Dog& copy);
 
-        virtual void makeSound() const;
+        virtual void makeSound(void) const;
 };
 
 
